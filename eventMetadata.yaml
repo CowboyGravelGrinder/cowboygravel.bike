@@ -1,0 +1,47 @@
+event:
+  name: "Cowboy Gravel Grinder"
+  date: "2027-05-15"
+  time: "8:00 AM"
+  location: "Norfolk, NE"
+  description: "Cowboy Gravel Grinder is a self-paced fun gravel ride that will explore the rolling hills and scenic communities surrounding the Norfolk, Ne area. The route starts and ends at the Divots Brewery/Norfolk Lodge and Suites! SAG Support stops are placed along the route every 7-9 miles to be able to refill on water or snacks! Join us for a great day of Gravel, Gears, and Beers (Peers)"
+  website: "https://cowboygravel.bike"
+  facebook: "https://www.facebook.com/CowboyGravelGrinder"
+  eventInauguralYear: 2027
+  routes:
+    - name: "The Short Line Shuffle"
+      distance: "approximately 18 miles"
+      surface: "gravel"
+      logo: "18m.png"
+      description: |
+        Saddle up for a laid-back ride on The Short Line Shuffle — 18 Mile. Designed for riders who want to soak in the scenery without the strain, this out-and-back course offers a smooth and approachable introduction to gravel riding.
+        With just around 90 feet of elevation gain, this route keeps things gentle and enjoyable, making it perfect for beginners, families, or anyone looking for a relaxed spin. You'll cruise primarily along the scenic Cowboy Trail, where wide-open skies and peaceful stretches of Nebraska countryside set the tone for a true prairie experience.
+        Midway through your journey, you'll roll into Battle Creek for a convenient stop—an ideal chance to rest, refuel, and take in a bit of small-town charm before heading back the way you came.
+        Whether you're new to gravel or just in it for a calm, easy ride, The Short Line Shuffle delivers a welcoming adventure with just the right touch of cowboy spirit.
+      
+    - name: "Tracks and Tread 50K"
+      distance: "approximately 50 kilometers"
+      surface: "gravel"
+      logo: "50k.png"
+      description: |
+        Saddle up for the heart of the Cowboy Gravel Grinder with the Tracks and Tread 50K—a perfect blend of scenic cruising and rewarding effort. This 50-kilometer route delivers approximately 500 feet of elevation gain, offering a smooth yet engaging ride for gravel cyclists of all levels.
+        Rolling out from the brewery, riders will head south into Nebraska's wide-open countryside, where quiet gravel roads stretch across gently rolling terrain. Expect sweeping views, fresh country air, and the rhythmic crunch of gravel beneath your tires as you find your pace.
+        The route leads you toward Battle Creek, guiding you through a landscape that feels both rugged and peaceful. With manageable climbs and long, flowing stretches, this course is designed to keep you moving while still giving you time to take in the surroundings.
+        After reaching the turnaround, you'll retrace your path back north, finishing where it all began—at the brewery—where a well-earned drink and camaraderie await.
+        Whether you're pushing your limits or enjoying the ride, the Tracks and Tread 50K captures the spirit of gravel riding: freedom, grit, and just the right amount of adventure.
+
+    - name: "The Frontier Fondo"
+      distance: "approximately 100 kilometers"
+      surface: "gravel"
+      logo: "100k.png"
+      description: |
+        Saddle up for the ultimate prairie adventure on The Frontier Fondo, the signature 100K route of the Cowboy Gravel Grinder. Rolling out from the brewery, riders head south into the heart of wide-open country, where the gravel stretches endlessly beneath big Nebraska skies.
+        With roughly 1,300 feet of elevation gain, this route offers a perfect balance of challenge and flow—long, steady rollers, punchy climbs, and rewarding descents that keep your legs working and your spirit soaring. Along the way, you'll wind through quiet country roads, pass through charming small towns, and take in sweeping scenic views that define the frontier landscape.
+        Expect a ride that feels both rugged and welcoming—where every mile tells a story, every hill reveals a new horizon, and every turn reminds you why gravel riding is as much about the journey as the finish line.
+        The Frontier Fondo isn't just a ride—it's a full immersion into the soul of gravel country.
+      
+    - name: "Sunday Morning Breakfast Ride"
+      distance: "approximately 18 miles"
+      surface: "gravel"
+      description: "Bonus ride! This is a breakfast ride that is approximately 18 miles long."
+      date: "2027-05-16"
+      time: "8:00 AM"

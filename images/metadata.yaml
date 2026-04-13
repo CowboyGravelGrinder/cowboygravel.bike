@@ -1,0 +1,53 @@
+images:
+  - filename: "18m.png"
+    dimensions: "1024x1024"
+    description: "This is a logo for the 18 mile gravel route. The logo is circular. It resembles the main event logo, but with the name of the route at the bottom."
+    imageText: |
+      COWBOY
+      GRAVEL GRINDER
+      THE SHORT LINE SHUFFLE
+
+  - filename: "50k.png"
+    dimensions: "1024x1024"
+    description: "This is a logo for the 50K gravel route. The logo is circular. It resembles the main event logo, but with the name of the route at the bottom."
+    imageText: |
+      COWBOY
+      GRAVEL GRINDER
+      TRACKS AND TREADS 50K
+
+  - filename: "100k.png"
+    dimensions: "1024x1024"
+    description: "This is a logo for the 100K gravel route. The logo is circular. It resembles the main event logo, but with the name of the route at the bottom."
+    imageText: |
+      COWBOY
+      GRAVEL GRINDER
+      THE FRONTIER FONDO
+
+  - filename: "flyer.jpg"
+    dimensions: "1545x2000"
+    description: "This is a flyer for advertising the event. The top half of the image is a slightly wider version of the header image. The bottom half has text with a description of the event, event details (date, times, routes), and website/Facebook links."
+    imageText: |
+      COWBOY
+      GRAVEL GRINDER
+      PRESENTED BY:
+      COWBOY GRAVEL AND DIVOTS BREWERY
+      NEBRASKA'S NEWEST
+      GRAVEL RIDE
+      Cowboy Gravel Grinder is a self-paced fun gravel ride that will explore the rolling hills and scenic communities surrounding the Norfolk, Ne area. The route starts and ends at the Divots Brewery/Norfolk Lodge and Suites! SAG Support stops are placed along the route every 7-9 miles to be able to refill on water or snacks! Join us for a great day of Gravel, Gears, and Beers (Peers)
+      15th May 2027 8:00 AM | 18 Mile, 50K, and 100K Routes | Bonus Ride: 18 Mile Breakfast Ride on Sunday the 16th
+      For More Information    www.cowboygravel.bike   Cowboy Gravel Grinder on Facebook
+
+  - filename: "header.jpg"
+    dimensions: "1650x1275"
+    description: "A postcard-sized image. The main event logo is featured in the center, with a background of a rural/mountain/western scene with people riding bikes on a gravel road."
+    imageText: |
+      COWBOY
+      GRAVEL GRINDER
+
+  - filename: "logo.png"
+    dimensions: "1024x1024"
+    description: "The primary logo for the event. The logo is circular."
+    imageText: |
+      COWBOY
+      GRAVEL GRINDER
+
