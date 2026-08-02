@@ -78,8 +78,7 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(165deg, rgba(13, 11, 9, 0.15) 0%, rgba(13, 11, 9, 0.88) 45%, var(--bg-deep) 100%),
-        url("images/header.jpg") center / cover no-repeat;
+        url("images/cowboy_sunset.jpg") 40% 45% / cover no-repeat;
       z-index: 0;
     }
 
@@ -87,7 +86,13 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 80% 50% at 50% 0%, transparent 0%, var(--bg-deep) 75%);
+      background:
+        radial-gradient(
+          ellipse 70% 55% at 50% 42%,
+          rgba(13, 11, 9, 0.72) 0%,
+          rgba(13, 11, 9, 0.35) 45%,
+          transparent 70%
+        );
       pointer-events: none;
     }
 
@@ -171,18 +176,23 @@
       line-height: 1.05;
       text-transform: uppercase;
       color: var(--cream);
-      text-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
+      text-shadow:
+        0 2px 20px rgba(0, 0, 0, 0.7),
+        0 0 40px rgba(0, 0, 0, 0.4);
     }
 
     .tagline {
       font-size: clamp(1rem, 2.5vw, 1.2rem);
       font-weight: 300;
-      color: var(--muted);
+      color: var(--cream);
       margin-top: 0.75rem;
       max-width: 36ch;
       margin-left: auto;
       margin-right: auto;
       line-height: 1.55;
+      text-shadow:
+        0 2px 20px rgba(0, 0, 0, 0.7),
+        0 0 40px rgba(0, 0, 0, 0.4);
     }
 
     .details {
@@ -333,13 +343,15 @@
     }
 
     .links a.secondary {
-      background: transparent;
+      background: rgba(13, 11, 9, 0.55);
       color: var(--cream);
       border: 1px solid var(--border);
+      backdrop-filter: blur(8px);
     }
 
     .links a.secondary:hover {
       border-color: var(--dust);
+      background: rgba(13, 11, 9, 0.7);
       box-shadow: none;
     }
 

@@ -44,6 +44,10 @@ images:
       COWBOY
       GRAVEL GRINDER
 
+  - filename: "cowboy_sunset.jpg"
+    dimensions: "1600x1066"
+    description: "A photo of a section of the route at sunset. The photo is taken from a high vantage point, looking down on the route. There are cyclists on a wooden bridge over a river."
+
   - filename: "logo.png"
     dimensions: "1024x1024"
     description: "The primary logo for the event. The logo is circular."
