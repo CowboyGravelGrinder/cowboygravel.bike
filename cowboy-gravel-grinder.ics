@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Cowboy Gravel Grinder//cowboygravel.bike//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2027-cowboy-gravel-grinder@cowboygravel.bike
+DTSTAMP:20261017T000000Z
+DTSTART:20270515T130000Z
+DTEND:20270515T200000Z
+SUMMARY:Cowboy Gravel Grinder
+LOCATION:Divots Brewery Taproom\, 4300 W Norfolk Ave\, Norfolk\, NE 68701\, USA
+DESCRIPTION:Self-paced gravel ride from Divots Brewery & Norfolk Lodge and 
+ Suites. 18 mile\, 50K\, and 100K routes with SAG stops every 7-9 miles.\n\n
+ https://cowboygravel.bike
+URL:https://cowboygravel.bike
+END:VEVENT
+END:VCALENDAR

@@ -229,6 +229,10 @@
 
     .detail--link {
       display: block;
+      width: 100%;
+      font: inherit;
+      text-align: inherit;
+      cursor: pointer;
       text-decoration: none;
       color: inherit;
       transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
@@ -250,6 +254,55 @@
       font-weight: 600;
       color: var(--dust);
       margin-top: 0.35rem;
+    }
+
+    .cal {
+      position: relative;
+      z-index: 2;
+    }
+
+    .cal .detail--link {
+      height: 100%;
+    }
+
+    .cal .detail--link>span {
+      display: block;
+    }
+
+    .cal-menu {
+      position: absolute;
+      top: calc(100% + 0.4rem);
+      left: 0;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      padding: 0.35rem;
+      background: rgba(22, 18, 14, 0.96);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+      text-align: left;
+      animation: rise 0.2s ease-out both;
+    }
+
+    .cal-menu[hidden] {
+      display: none;
+    }
+
+    .cal-menu a {
+      padding: 0.55rem 0.75rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--cream);
+      text-decoration: none;
+      border-radius: 8px;
+    }
+
+    .cal-menu a:hover,
+    .cal-menu a:focus-visible {
+      background: rgba(196, 165, 116, 0.15);
+      color: var(--dust);
+      outline: none;
     }
 
     .routes {
@@ -509,9 +562,21 @@
         and Suites. SAG stops every 7-9 miles. Gravel, gears, and good company.
       </p>
       <div class="details">
-        <div class="detail">
-          <div class="detail__label">When</div>
-          <div class="detail__value">May 15, 2027 · 8:00 AM</div>
+        <div class="cal">
+          <button type="button" class="detail detail--link" id="cal-toggle" aria-expanded="false"
+            aria-controls="cal-menu">
+            <span class="detail__label">When</span>
+            <span class="detail__value">May 15, 2027 · 8:00 AM</span>
+            <span class="detail__hint">Add to calendar →</span>
+          </button>
+          <div class="cal-menu" id="cal-menu" hidden>
+            <a data-cal="google" target="_blank" rel="noopener noreferrer">Google Calendar</a>
+            <a href="cowboy-gravel-grinder.ics" download>Apple Calendar</a>
+            <a data-cal="outlook" target="_blank" rel="noopener noreferrer">Outlook.com</a>
+            <a data-cal="office365" target="_blank" rel="noopener noreferrer">Office 365</a>
+            <a data-cal="yahoo" target="_blank" rel="noopener noreferrer">Yahoo Calendar</a>
+            <a href="cowboy-gravel-grinder.ics" download>Download .ics file</a>
+          </div>
         </div>
         <a class="detail detail--link" href="location.html">
           <div class="detail__label">Where</div>
@@ -569,7 +634,8 @@
         </article>
         <article class="route-detail" data-route="tracks" hidden>
           <h3>Tracks and Tread 50K</h3>
-          <p>Saddle up for the heart of the Cowboy Gravel Grinder with the Tracks and Tread 50K—a perfect blend of scenic
+          <p>Saddle up for the heart of the Cowboy Gravel Grinder with the Tracks and Tread 50K—a perfect blend of
+            scenic
             cruising and rewarding effort. This 50-kilometer route delivers approximately 500 feet of elevation gain,
             offering a smooth yet engaging ride for gravel cyclists of all levels.</p>
           <p>Rolling out from the brewery, riders will head south into Nebraska's wide-open countryside, where quiet
@@ -618,6 +684,65 @@
   let copyYear = currentYear.toString();
   if (currentYear > 2026) { copyYear = "2026-" + copyYear; }
   document.getElementById('copy-year').textContent = copyYear;
+
+  // Add to calendar — plain provider links, no API. Times are UTC (8:00 AM–3:00 PM CDT).
+  const calEvent = {
+    title: 'Cowboy Gravel Grinder',
+    start: '20270515T130000Z',
+    end: '20270515T200000Z',
+    location: 'Divots Brewery Taproom, 4300 W Norfolk Ave, Norfolk, NE 68701, USA',
+    details: 'Self-paced gravel ride from Divots Brewery & Norfolk Lodge and Suites. 18 mile, 50K, and 100K routes with SAG stops every 7-9 miles.\n\nhttps://cowboygravel.bike',
+  };
+  const isoTime = (t) => t.replace(/(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})Z/, '$1-$2-$3T$4:$5:$6Z');
+  const outlookUrl = (host) => `https://${host}/calendar/0/action/compose?` + new URLSearchParams({
+    path: '/calendar/action/compose', rru: 'addevent', subject: calEvent.title,
+    startdt: isoTime(calEvent.start), enddt: isoTime(calEvent.end),
+    location: calEvent.location, body: calEvent.details,
+  });
+  const calUrls = {
+    google: 'https://calendar.google.com/calendar/render?' + new URLSearchParams({
+      action: 'TEMPLATE', text: calEvent.title, dates: `${calEvent.start}/${calEvent.end}`,
+      location: calEvent.location, details: calEvent.details,
+    }),
+    outlook: outlookUrl('outlook.live.com'),
+    office365: outlookUrl('outlook.office.com'),
+    yahoo: 'https://calendar.yahoo.com/?' + new URLSearchParams({
+      v: '60', title: calEvent.title, st: calEvent.start, et: calEvent.end,
+      in_loc: calEvent.location, desc: calEvent.details,
+    }),
+  };
+
+  const calToggle = document.getElementById('cal-toggle');
+  const calMenu = document.getElementById('cal-menu');
+  calMenu.querySelectorAll('[data-cal]').forEach((a) => { a.href = calUrls[a.dataset.cal]; });
+
+  // iPhone/iPad open .ics files straight into the Calendar app, so skip the menu there.
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+  const setCalMenu = (open) => {
+    calMenu.hidden = !open;
+    calToggle.setAttribute('aria-expanded', String(open));
+  };
+  calToggle.addEventListener('click', () => {
+    if (isIOS) {
+      window.location.href = 'cowboy-gravel-grinder.ics';
+      return;
+    }
+    setCalMenu(calMenu.hidden);
+  });
+  document.addEventListener('click', (e) => {
+    if (!calMenu.hidden && !e.target.closest('.cal')) setCalMenu(false);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !calMenu.hidden) {
+      setCalMenu(false);
+      calToggle.focus();
+    }
+  });
+  calMenu.addEventListener('click', (e) => {
+    if (e.target.closest('a')) setCalMenu(false);
+  });
 
   const narrowScreen = window.matchMedia('(max-width: 520px)');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
