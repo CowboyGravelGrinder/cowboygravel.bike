@@ -227,6 +227,31 @@
       color: var(--cream);
     }
 
+    .detail--link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .detail--link:hover {
+      transform: translateY(-2px);
+      border-color: var(--dust);
+      box-shadow: 0 8px 24px rgba(196, 165, 116, 0.2);
+    }
+
+    .detail--link:focus-visible {
+      outline: 2px solid var(--dust);
+      outline-offset: 4px;
+    }
+
+    .detail__hint {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--dust);
+      margin-top: 0.35rem;
+    }
+
     .routes {
       margin-top: 3rem;
       padding-bottom: 3rem;
@@ -488,10 +513,11 @@
           <div class="detail__label">When</div>
           <div class="detail__value">May 15, 2027 · 8:00 AM</div>
         </div>
-        <div class="detail">
+        <a class="detail detail--link" href="location.html">
           <div class="detail__label">Where</div>
           <div class="detail__value">Norfolk, NE</div>
-        </div>
+          <div class="detail__hint">View map →</div>
+        </a>
       </div>
       <div class="links">
         <a class="secondary" href="https://www.facebook.com/profile.php?id=61587427448003" target="_blank"
