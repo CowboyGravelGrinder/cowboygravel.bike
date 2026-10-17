@@ -87,12 +87,10 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(
-          ellipse 70% 55% at 50% 42%,
+        radial-gradient(ellipse 70% 55% at 50% 42%,
           rgba(13, 11, 9, 0.72) 0%,
           rgba(13, 11, 9, 0.35) 45%,
-          transparent 70%
-        );
+          transparent 70%);
       pointer-events: none;
     }
 
@@ -355,6 +353,18 @@
       box-shadow: none;
     }
 
+    .reg-note {
+      margin-top: 1rem;
+      font-size: 0.875rem;
+      color: var(--cream);
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.7);
+    }
+
+    .reg-note strong {
+      color: var(--dust);
+      font-weight: 600;
+    }
+
     .flyer-section {
       padding: 2rem clamp(1rem, 4vw, 2rem) 4rem;
       max-width: 420px;
@@ -403,10 +413,12 @@
         </div>
       </div>
       <div class="links">
-        <a href="https://cowboygravel.bike">cowboygravel.bike</a>
         <a class="secondary" href="https://www.facebook.com/profile.php?id=61587427448003" target="_blank"
-          rel="noopener noreferrer">Facebook</a>
+          rel="noopener noreferrer">Follow us on Facebook</a>
+        <a href="https://www.bikereg.com/cowboy-gravel-grinder" target="_blank" rel="noopener noreferrer">Register on
+          BikeReg</a>
       </div>
+      <p class="reg-note">Registration opens <strong>Dec 31, 2026 · 7:00 AM CT</strong></p>
     </div>
   </header>
 
