@@ -545,6 +545,58 @@
       box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
     }
 
+    .sponsors {
+      padding: 1rem clamp(1rem, 4vw, 2rem) 3.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .sponsors__title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--dust);
+      margin-bottom: 1.75rem;
+    }
+
+    .sponsors__list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      list-style: none;
+    }
+
+    .sponsors__link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 220px;
+      max-width: 100%;
+      height: 120px;
+      padding: 0.5rem 0.75rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .sponsors__link:hover,
+    .sponsors__link:focus-visible {
+      transform: translateY(-3px);
+      border-color: var(--dust);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .sponsors__link img {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
     .footer {
       text-align: center;
       padding: 1.5rem;
@@ -687,9 +739,9 @@
     </p>
   </section>
 
-  <section class="flyer-section" aria-label="Event flyer">
-    <img src="images/flyer.jpg" alt="Cowboy Gravel Grinder event flyer with routes and details" width="1545"
-      height="2000" loading="lazy" />
+  <section class="sponsors" id="sponsors" aria-labelledby="sponsors-heading" hidden>
+    <h2 id="sponsors-heading" class="sponsors__title">Thank you to our sponsors</h2>
+    <ul class="sponsors__list" id="sponsors-list"></ul>
   </section>
 
   <footer class="footer">
@@ -766,6 +818,32 @@
   calMenu.addEventListener('click', (e) => {
     if (e.target.closest('a')) setCalMenu(false);
   });
+
+  // Sponsors - populated from sponsors.json; the section stays hidden if the list is empty or fails to load.
+  fetch('sponsors.json')
+    .then((r) => (r.ok ? r.json() : Promise.reject(new Error(r.status))))
+    .then((sponsors) => {
+      if (!Array.isArray(sponsors) || !sponsors.length) return;
+      const list = document.getElementById('sponsors-list');
+      sponsors.forEach(({ name, url, logo }) => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.className = 'sponsors__link';
+        a.href = url;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.title = name;
+        const img = document.createElement('img');
+        img.src = logo;
+        img.alt = name;
+        img.loading = 'lazy';
+        a.appendChild(img);
+        li.appendChild(a);
+        list.appendChild(li);
+      });
+      document.getElementById('sponsors').hidden = false;
+    })
+    .catch((err) => console.warn('Could not load sponsors.json', err));
 
   const narrowScreen = window.matchMedia('(max-width: 520px)');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
